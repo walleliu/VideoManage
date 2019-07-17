@@ -155,10 +155,35 @@
     shotImage = [[UIImage alloc] initWithCGImage:image];
     
     CGImageRelease(image);
+    UIImage*smailImage = [UIImage imageWithData:[self compressWithMaxLength:200 andImage:shotImage]];
     
-    return shotImage;
+    return smailImage;
     
 }
+/*
+ *maxLengthKB 压缩到的大小
+ *image 准备压缩的图片
+ */
+-(NSData *)compressWithMaxLength:(NSUInteger)maxLength andImage:(UIImage*)image{
+    CGFloat compression = 1;
+    NSData *data = UIImageJPEGRepresentation(image, compression);
+    if (data.length < maxLength) return data;
+    CGFloat max = 1;
+    CGFloat min = 0;
+    for (int i = 0; i < 6; ++i) {
+        compression = (max + min) / 2;
+        data = UIImageJPEGRepresentation(image, compression);
+        if (data.length < maxLength * 0.9) {
+            min = compression;
+        } else if (data.length > maxLength) {
+            max = compression;
+        } else {
+            break;
+        }
+    }
+    return data;
+}
+
 //获取视频时长
 - (NSInteger)getVideoTimeByUrlString:(NSString*)urlString {
     //视频路径URL

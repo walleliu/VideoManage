@@ -11,4 +11,6 @@
 @interface CLTableViewViewController : UIViewController
 @property (copy, nonatomic)  NSString *leibieName;
 @property (strong,nonatomic) NSIndexPath *index;
+
+@property(nonatomic,assign)NSInteger sortType;//0 创建时间 1 名称
 @end

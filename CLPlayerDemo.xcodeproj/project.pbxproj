@@ -237,9 +237,9 @@
 				11F36AE022DD7D0000163FEA /* UpVideoViewController.h */,
 				11F36AE122DD7D0000163FEA /* UpVideoViewController.m */,
 				11F36AE222DD7D0000163FEA /* UpVideoViewController.xib */,
+				5BB4D0FF1F345925007A1742 /* TableViewViewController */,
 				11F36AC222DC8E2700163FEA /* MMPhotoPicker */,
 				5BB4D1011F3459A3007A1742 /* Gategory */,
-				5BB4D0FF1F345925007A1742 /* TableViewViewController */,
 				5BB4D0FB1F345642007A1742 /* View */,
 				5BB4D0FA1F345635007A1742 /* Model */,
 			);

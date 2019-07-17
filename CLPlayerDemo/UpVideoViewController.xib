@@ -20,8 +20,40 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SDt-YX-b0y">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAe-zF-hlK">
+                            <rect key="frame" x="0.0" y="90" width="207" height="50"/>
+                            <state key="normal" title="时间"/>
+                            <connections>
+                                <action selector="creatTimeButton:" destination="-1" eventType="touchUpInside" id="YDf-dz-FH4"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZR-nC-3fq">
+                            <rect key="frame" x="207" y="90" width="207" height="50"/>
+                            <state key="normal" title="名称"/>
+                            <connections>
+                                <action selector="nameButton:" destination="-1" eventType="touchUpInside" id="u5z-7r-y21"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="bZR-nC-3fq" secondAttribute="trailing" id="3UA-67-5Rh"/>
+                        <constraint firstItem="RAe-zF-hlK" firstAttribute="top" secondItem="SDt-YX-b0y" secondAttribute="top" constant="90" id="4Md-6m-dQc"/>
+                        <constraint firstItem="bZR-nC-3fq" firstAttribute="leading" secondItem="RAe-zF-hlK" secondAttribute="trailing" id="KQ9-kz-xkw"/>
+                        <constraint firstItem="bZR-nC-3fq" firstAttribute="top" secondItem="SDt-YX-b0y" secondAttribute="top" constant="90" id="Ue1-wO-9ad"/>
+                        <constraint firstItem="RAe-zF-hlK" firstAttribute="leading" secondItem="SDt-YX-b0y" secondAttribute="leading" id="cnK-fY-Lea"/>
+                        <constraint firstAttribute="height" constant="140" id="e6z-c6-vtE"/>
+                        <constraint firstAttribute="bottom" secondItem="bZR-nC-3fq" secondAttribute="bottom" id="g9K-sa-jgk"/>
+                        <constraint firstItem="bZR-nC-3fq" firstAttribute="width" secondItem="RAe-zF-hlK" secondAttribute="width" id="i8O-wO-KTX"/>
+                        <constraint firstAttribute="bottom" secondItem="RAe-zF-hlK" secondAttribute="bottom" id="lN6-Sc-gDV"/>
+                        <constraint firstItem="bZR-nC-3fq" firstAttribute="leading" secondItem="RAe-zF-hlK" secondAttribute="trailing" id="tnP-eD-ftH"/>
+                    </constraints>
+                </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rqo-Af-ASL">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <rect key="frame" x="0.0" y="140" width="414" height="756"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="PhL-Xo-pHH"/>
@@ -31,11 +63,15 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Rqo-Af-ASL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="FFo-KE-8UK"/>
+                <constraint firstItem="Rqo-Af-ASL" firstAttribute="top" secondItem="SDt-YX-b0y" secondAttribute="bottom" id="FFo-KE-8UK"/>
                 <constraint firstItem="Rqo-Af-ASL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="QJY-32-lMF"/>
                 <constraint firstAttribute="bottom" secondItem="Rqo-Af-ASL" secondAttribute="bottom" id="Wyi-Ti-t7m"/>
+                <constraint firstItem="SDt-YX-b0y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hZs-UM-Kud"/>
+                <constraint firstAttribute="trailing" secondItem="SDt-YX-b0y" secondAttribute="trailing" id="j6E-wc-6oe"/>
                 <constraint firstAttribute="trailing" secondItem="Rqo-Af-ASL" secondAttribute="trailing" id="nxK-Iq-Hro"/>
+                <constraint firstItem="SDt-YX-b0y" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="tbU-kj-Tzq"/>
             </constraints>
+            <point key="canvasLocation" x="-1187" y="48"/>
         </view>
     </objects>
 </document>

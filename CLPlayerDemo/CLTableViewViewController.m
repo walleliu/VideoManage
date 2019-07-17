@@ -59,17 +59,34 @@ static NSString *CLTableViewCellIdentifier = @"CLTableViewCellIdentifier";
 - (NSMutableArray *)visitDirectoryList:(NSString *)path Isascending:(BOOL)isascending {
     NSArray *fileList  = [[NSFileManager defaultManager] subpathsAtPath:path];  // 取得目录下所有文件列表
     fileList = [fileList sortedArrayUsingComparator:^(NSString *firFile, NSString *secFile) {  // 将文件列表排序
-        NSString *firPath = [path stringByAppendingPathComponent:firFile];  // 获取前一个文件完整路径
-        NSString *secPath = [path stringByAppendingPathComponent:secFile];  // 获取后一个文件完整路径
-        NSDictionary *firFileInfo = [[NSFileManager defaultManager] attributesOfItemAtPath:firPath error:nil];  // 获取前一个文件信息
-        NSDictionary *secFileInfo = [[NSFileManager defaultManager] attributesOfItemAtPath:secPath error:nil];  // 获取后一个文件信息
-        id firData = [firFileInfo objectForKey:NSFileCreationDate];  // 获取前一个文件创建时间
-        id secData = [secFileInfo objectForKey:NSFileCreationDate];  // 获取后一个文件创建时间
-        
-        if (isascending) {
-            return [firData compare:secData];  // 升序
-        } else {
-            return [secData compare:firData];  // 降序
+        if (self->_sortType == 0) {
+            //时间排序
+            NSString *firPath = [path stringByAppendingPathComponent:firFile];  // 获取前一个文件完整路径
+            NSString *secPath = [path stringByAppendingPathComponent:secFile];  // 获取后一个文件完整路径
+            NSDictionary *firFileInfo = [[NSFileManager defaultManager] attributesOfItemAtPath:firPath error:nil];  // 获取前一个文件信息
+            NSDictionary *secFileInfo = [[NSFileManager defaultManager] attributesOfItemAtPath:secPath error:nil];  // 获取后一个文件信息
+            id firData = [firFileInfo objectForKey:NSFileCreationDate];  // 获取前一个文件创建时间
+            id secData = [secFileInfo objectForKey:NSFileCreationDate];  // 获取后一个文件创建时间
+            
+            if (isascending) {
+                return [firData compare:secData];  // 升序
+            } else {
+                return [secData compare:firData];  // 降序
+            }
+        }else if (self->_sortType == 1) {
+            //名称排序
+            if (isascending) {
+                return [firFile compare:secFile];  // 升序
+            } else {
+                return [secFile compare:firFile];  // 降序
+            }
+        }else{
+            //默认 名称排序
+            if (isascending) {
+                return [firFile compare:secFile];  // 升序
+            } else {
+                return [secFile compare:firFile];  // 降序
+            }
         }
         
     }];
@@ -78,9 +95,7 @@ static NSString *CLTableViewCellIdentifier = @"CLTableViewCellIdentifier";
     // 将所有文件按照日期分成数组
     
     NSMutableArray  *listArray = [NSMutableArray new];//最终数组
-    NSMutableArray  *tempArray = [NSMutableArray new];//每天文件数组
-    NSDateFormatter *format    = [[NSDateFormatter alloc] init];
-    format.dateFormat = @"yyyy-MM-dd";
+   
     
     for (NSString *fileName in fileList) {
         NSString     *filePath = [path stringByAppendingPathComponent:fileName];
@@ -91,30 +106,12 @@ static NSString *CLTableViewCellIdentifier = @"CLTableViewCellIdentifier";
         fileDic[NSFileSize] = fileInfo[NSFileSize];//文件大小
         fileDic[NSFileCreationDate] = fileInfo[NSFileCreationDate];//时间
         
-        if (tempArray.count > 0) {  // 获取日期进行比较, 按照 XXXX 年 XX 月 XX 日来装数组
-            NSString *currDate = [format stringFromDate:fileInfo[NSFileCreationDate]];
-            NSString *lastDate = [format stringFromDate:tempArray.lastObject[NSFileCreationDate]];
-            
-            if (![currDate isEqualToString:lastDate]) {
-                [listArray addObject:tempArray];
-                tempArray = [NSMutableArray new];
-            }
-        }
-        [tempArray addObject:fileDic];
-    }
-    
-    if (tempArray.count > 0) {  // 装载最后一个 array 数组
-        [listArray addObject:tempArray];
+        [listArray addObject:fileDic];
     }
     
     NSLog(@"visitDirectoryList = %@", listArray);
-    NSMutableArray*array = [NSMutableArray array];
-    for (NSMutableArray*arr in listArray) {
-        for (NSMutableDictionary *dic in arr) {
-            [array addObject:dic];
-        }
-    }
-    return array;
+
+    return listArray;
 }
 /**tableView*/
 - (UITableView *) tableView{
