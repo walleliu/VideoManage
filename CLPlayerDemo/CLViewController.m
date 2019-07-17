@@ -130,7 +130,6 @@
 }
 
 -(void)postVideoClick{
-    //上传视频
     UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"填写名称" message:@"请输入文件夹名称" preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *actionCancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];

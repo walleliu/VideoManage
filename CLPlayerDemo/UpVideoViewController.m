@@ -133,7 +133,7 @@
 //在willDisplayCell里面处理数据能优化tableview的滑动流畅性
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     if ([self.arrayDS[indexPath.row] isKindOfClass:[NSDictionary class]]) {
-        cell.textLabel.text = [self.arrayDS[indexPath.row] objectForKey:@"Name"];
+        cell.textLabel.text = [NSString stringWithFormat:@"%ld.%@",indexPath.row,[self.arrayDS[indexPath.row] objectForKey:@"Name"]];
     }else{
         cell.textLabel.text = self.arrayDS[indexPath.row];
     }
@@ -228,7 +228,7 @@
     // cropOption = YES 时，不显示视频
     MMPhotoPickerController * controller = [[MMPhotoPickerController alloc] init];
     controller.delegate = self;
-    controller.showEmptyAlbum = YES;
+    controller.showEmptyAlbum = NO;
     controller.showVideo = YES;
     controller.cropOption = NO;
     controller.singleOption = YES;
@@ -260,16 +260,7 @@
                 NSData*data = [NSData dataWithContentsOfURL:[dict objectForKey:MMPhotoVideoURL]];
                 [self WriteToBox:data withName:self.videoName];
                 UIImage * image = [dict objectForKey:MMPhotoOriginalImage];
-                if (!picker.isOrigin) { // 原图
-                    NSData * imageData = UIImageJPEGRepresentation(image,1.0);
-                    int size = (int)[imageData length]/1024;
-                    if (size < 100) {
-                        imageData = UIImageJPEGRepresentation(image, 0.5);
-                    } else {
-                        imageData = UIImageJPEGRepresentation(image, 0.1);
-                    }
-                    image = [UIImage imageWithData:imageData];
-                }
+                
                 [dict setObject:image forKey:MMPhotoOriginalImage];
                 //                [self.infoArray addObject:dict];
             }

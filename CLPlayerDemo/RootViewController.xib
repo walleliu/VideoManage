@@ -67,7 +67,7 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DM4-Sx-0s0">
-                    <rect key="frame" x="0.0" y="768" width="414" height="128"/>
+                    <rect key="frame" x="0.0" y="768" width="264" height="128"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <gestureRecognizers/>
                     <constraints>
@@ -84,7 +84,7 @@
                 <constraint firstItem="aOn-CI-jdr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="8ba-t6-omV"/>
                 <constraint firstItem="GBB-TB-IG7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="A2z-h4-jsj"/>
                 <constraint firstAttribute="trailing" secondItem="Ix8-2C-ouS" secondAttribute="trailing" constant="89" id="AcW-Ls-Kzp"/>
-                <constraint firstItem="DM4-Sx-0s0" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="EC9-1F-VGJ"/>
+                <constraint firstItem="DM4-Sx-0s0" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" constant="-150" id="EC9-1F-VGJ"/>
                 <constraint firstAttribute="bottom" secondItem="DM4-Sx-0s0" secondAttribute="bottom" id="IGg-qJ-442"/>
                 <constraint firstAttribute="trailing" secondItem="GBB-TB-IG7" secondAttribute="trailing" constant="10" id="Jzg-r5-LgD"/>
                 <constraint firstItem="HFL-iH-pgF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="RXJ-xD-OGZ"/>
@@ -98,7 +98,7 @@
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="153.34821428571428"/>
         </view>
-        <tapGestureRecognizer id="9ez-ij-021">
+        <tapGestureRecognizer numberOfTapsRequired="10" numberOfTouchesRequired="2" id="9ez-ij-021">
             <connections>
                 <action selector="tap:" destination="-1" id="YsM-bZ-Q5R"/>
                 <outlet property="delegate" destination="DM4-Sx-0s0" id="OhW-bT-1ct"/>
