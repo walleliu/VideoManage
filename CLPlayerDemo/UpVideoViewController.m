@@ -141,7 +141,6 @@
     tabVC.index = indexPath;
     tabVC.sortType = _sortType;
     [self.navigationController pushViewController:tabVC animated:YES];
-    
 }
 
 -(void)tableView:(UITableView*)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath*)indexPath{
@@ -164,7 +163,7 @@
         //获取Document文件的路径
         NSArray *filePath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *collectPath = filePath.lastObject;
-        collectPath = [collectPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",_leibieName]];
+        collectPath = [collectPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",self.leibieName]];
         NSString *path = [NSString stringWithFormat:@"%@/%@",collectPath,[self.arrayDS[indexPath.row] objectForKey:@"Name"]];
         [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
         self.arrayDS = nil;

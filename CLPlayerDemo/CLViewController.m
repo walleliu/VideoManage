@@ -79,7 +79,7 @@
 /**tableView*/
 - (UITableView *) tableView{
     if (_tableView == nil){
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, CLscreenWidth, CLscreenHeight - 64 - 49) style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, CLscreenWidth, CLscreenHeight - 64 - 49) style:UITableViewStyleGrouped];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.sectionFooterHeight = 0;
@@ -90,7 +90,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [[UINavigationBar appearance] setTranslucent:NO];
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"分类";
     

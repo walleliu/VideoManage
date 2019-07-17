@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -17,21 +17,21 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SDt-YX-b0y">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAe-zF-hlK">
-                            <rect key="frame" x="0.0" y="90" width="207" height="50"/>
+                            <rect key="frame" x="0.0" y="0.0" width="207" height="40"/>
                             <state key="normal" title="时间"/>
                             <connections>
                                 <action selector="creatTimeButton:" destination="-1" eventType="touchUpInside" id="YDf-dz-FH4"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZR-nC-3fq">
-                            <rect key="frame" x="207" y="90" width="207" height="50"/>
+                            <rect key="frame" x="207" y="0.0" width="207" height="40"/>
                             <state key="normal" title="名称"/>
                             <connections>
                                 <action selector="nameButton:" destination="-1" eventType="touchUpInside" id="u5z-7r-y21"/>
@@ -41,11 +41,11 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="bZR-nC-3fq" secondAttribute="trailing" id="3UA-67-5Rh"/>
-                        <constraint firstItem="RAe-zF-hlK" firstAttribute="top" secondItem="SDt-YX-b0y" secondAttribute="top" constant="90" id="4Md-6m-dQc"/>
                         <constraint firstItem="bZR-nC-3fq" firstAttribute="leading" secondItem="RAe-zF-hlK" secondAttribute="trailing" id="KQ9-kz-xkw"/>
-                        <constraint firstItem="bZR-nC-3fq" firstAttribute="top" secondItem="SDt-YX-b0y" secondAttribute="top" constant="90" id="Ue1-wO-9ad"/>
+                        <constraint firstItem="RAe-zF-hlK" firstAttribute="top" secondItem="SDt-YX-b0y" secondAttribute="top" id="VHI-5X-Clx"/>
+                        <constraint firstItem="bZR-nC-3fq" firstAttribute="top" secondItem="SDt-YX-b0y" secondAttribute="top" id="aHU-sZ-Ff2"/>
                         <constraint firstItem="RAe-zF-hlK" firstAttribute="leading" secondItem="SDt-YX-b0y" secondAttribute="leading" id="cnK-fY-Lea"/>
-                        <constraint firstAttribute="height" constant="140" id="e6z-c6-vtE"/>
+                        <constraint firstAttribute="height" constant="40" id="e6z-c6-vtE"/>
                         <constraint firstAttribute="bottom" secondItem="bZR-nC-3fq" secondAttribute="bottom" id="g9K-sa-jgk"/>
                         <constraint firstItem="bZR-nC-3fq" firstAttribute="width" secondItem="RAe-zF-hlK" secondAttribute="width" id="i8O-wO-KTX"/>
                         <constraint firstAttribute="bottom" secondItem="RAe-zF-hlK" secondAttribute="bottom" id="lN6-Sc-gDV"/>
@@ -53,7 +53,7 @@
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rqo-Af-ASL">
-                    <rect key="frame" x="0.0" y="140" width="414" height="756"/>
+                    <rect key="frame" x="0.0" y="40" width="414" height="696"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="PhL-Xo-pHH"/>

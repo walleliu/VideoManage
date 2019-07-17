@@ -27,7 +27,7 @@ static NSString *CLTableViewCellIdentifier = @"CLTableViewCellIdentifier";
 @property (nonatomic, weak) CLPlayerView *playerView;
 /**记录Cell*/
 @property (nonatomic, assign) UITableViewCell *cell;
-
+@property (nonatomic,assign)BOOL hasFinishLayouSubview;
 @end
 
 @implementation CLTableViewViewController
@@ -129,6 +129,7 @@ static NSString *CLTableViewCellIdentifier = @"CLTableViewCellIdentifier";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
+    
 }
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
@@ -144,7 +145,7 @@ static NSString *CLTableViewCellIdentifier = @"CLTableViewCellIdentifier";
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [self.tableView scrollToRowAtIndexPath:_index atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+    
 }
 
 
@@ -247,7 +248,13 @@ static NSString *CLTableViewCellIdentifier = @"CLTableViewCellIdentifier";
 #pragma mark - 布局
 -(void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
+    [[UINavigationBar appearance] setTranslucent:NO];
     self.tableView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    if (!_hasFinishLayouSubview) {
+        _hasFinishLayouSubview = YES;
+        [self.tableView scrollToRowAtIndexPath:_index atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
+    }
+    
 }
 
 @end

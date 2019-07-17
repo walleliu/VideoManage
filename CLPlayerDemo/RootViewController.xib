@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入IP地址" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GBB-TB-IG7">
-                    <rect key="frame" x="10" y="140" width="394" height="30"/>
+                    <rect key="frame" x="10" y="81" width="394" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="BCT-iN-mRY"/>
                     </constraints>
@@ -31,7 +31,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入IP地址" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aOn-CI-jdr">
-                    <rect key="frame" x="10" y="207" width="116" height="30"/>
+                    <rect key="frame" x="10" y="148" width="116" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="2J4-IV-fcB"/>
                         <constraint firstAttribute="height" constant="30" id="KYs-Kp-fPP"/>
@@ -42,19 +42,19 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="输入IP地址：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aj5-wS-Sld">
-                    <rect key="frame" x="10" y="111" width="102" height="21"/>
+                    <rect key="frame" x="10" y="50" width="102" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请输入端口号：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HFL-iH-pgF">
-                    <rect key="frame" x="10" y="178" width="122" height="21"/>
+                    <rect key="frame" x="10" y="119" width="122" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ix8-2C-ouS">
-                    <rect key="frame" x="66" y="286" width="259" height="30"/>
+                    <rect key="frame" x="66" y="227" width="259" height="30"/>
                     <color key="backgroundColor" red="0.61960784310000006" green="0.80392156859999997" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="4QR-kY-MRS"/>
@@ -81,6 +81,7 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Aj5-wS-Sld" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="8Ks-Gq-Nyd"/>
+                <constraint firstItem="Aj5-wS-Sld" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="8YY-Qi-wOc"/>
                 <constraint firstItem="aOn-CI-jdr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="8ba-t6-omV"/>
                 <constraint firstItem="GBB-TB-IG7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="A2z-h4-jsj"/>
                 <constraint firstAttribute="trailing" secondItem="Ix8-2C-ouS" secondAttribute="trailing" constant="89" id="AcW-Ls-Kzp"/>
@@ -88,13 +89,12 @@
                 <constraint firstAttribute="trailing" secondItem="GBB-TB-IG7" secondAttribute="trailing" constant="10" id="Jzg-r5-LgD"/>
                 <constraint firstAttribute="trailing" secondItem="DM4-Sx-0s0" secondAttribute="trailing" constant="150" id="KCQ-1A-dTo"/>
                 <constraint firstItem="HFL-iH-pgF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="RXJ-xD-OGZ"/>
-                <constraint firstItem="GBB-TB-IG7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="140" id="ZFQ-Kp-mMd"/>
                 <constraint firstItem="HFL-iH-pgF" firstAttribute="top" secondItem="GBB-TB-IG7" secondAttribute="bottom" constant="8" id="eB4-Kv-QFT"/>
+                <constraint firstItem="GBB-TB-IG7" firstAttribute="top" secondItem="Aj5-wS-Sld" secondAttribute="bottom" constant="10" id="ejU-mh-0Ey"/>
                 <constraint firstItem="Ix8-2C-ouS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="66" id="f7r-p6-sil"/>
                 <constraint firstItem="DM4-Sx-0s0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gUx-xs-oVK"/>
                 <constraint firstItem="Ix8-2C-ouS" firstAttribute="top" secondItem="aOn-CI-jdr" secondAttribute="bottom" constant="49" id="scR-Xr-iXl"/>
                 <constraint firstItem="aOn-CI-jdr" firstAttribute="top" secondItem="HFL-iH-pgF" secondAttribute="bottom" constant="8" id="wIS-6t-boT"/>
-                <constraint firstItem="GBB-TB-IG7" firstAttribute="top" secondItem="Aj5-wS-Sld" secondAttribute="bottom" constant="8" id="xBL-tA-u1A"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="153.34821428571428"/>
         </view>
