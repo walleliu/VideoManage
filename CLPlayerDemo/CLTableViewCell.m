@@ -57,7 +57,10 @@
 /**pictureView*/
 - (UIImageView *) pictureView{
     if (_pictureView == nil){
-        _pictureView = [[UIImageView alloc] initWithFrame:CGRectMake(0, - (ImageViewHeight - CellHeight) * 0.5, CLscreenWidth, ImageViewHeight)];    }
+        _pictureView = [[UIImageView alloc] initWithFrame:CGRectMake(0, - (ImageViewHeight - CellHeight) * 0.5, CLscreenWidth, ImageViewHeight)];
+        
+        
+    }
     return _pictureView;
 }
 #pragma mark - 入口
@@ -88,7 +91,17 @@
 //        }
 //        [strongSelf.pictureView sd_setImageWithURL:[NSURL URLWithString:model.pictureUrl] placeholderImage:placeholderImage];
 //    }];
-    self.pictureView.image = [self getScreenShotImageFromVideoPath:model.videoUrl];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        UIImage * iii = [self getScreenShotImageFromVideoPath:model.videoUrl];
+        if (iii) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.pictureView.image = iii;
+            });
+        }
+    });
+
+    
     self.videoName.text = model.videoName;
     self.videoLength.text = [self getMMSSFromSS:[self getVideoTimeByUrlString:model.videoUrl]];
 
