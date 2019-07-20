@@ -130,6 +130,7 @@ static NSString *CLTableViewCellIdentifier = @"CLTableViewCellIdentifier";
     [super viewDidLoad];
     [self initUI];
     
+    
 }
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
@@ -190,6 +191,15 @@ static NSString *CLTableViewCellIdentifier = @"CLTableViewCellIdentifier";
             [UIView commitAnimations];
         }
     }];
+    
+    if([indexPath row] == ((NSIndexPath*)[[tableView indexPathsForVisibleRows] lastObject]).row){
+        dispatch_async(dispatch_get_main_queue(),^{
+            if (!_hasFinishLayouSubview) {
+                _hasFinishLayouSubview = YES;
+                [self.tableView scrollToRowAtIndexPath:_index atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
+            }
+        });
+    }
 }
 //cell离开tableView时调用
 - (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -250,10 +260,7 @@ static NSString *CLTableViewCellIdentifier = @"CLTableViewCellIdentifier";
     [super viewDidLayoutSubviews];
     [[UINavigationBar appearance] setTranslucent:NO];
     self.tableView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-    if (!_hasFinishLayouSubview) {
-        _hasFinishLayouSubview = YES;
-        [self.tableView scrollToRowAtIndexPath:_index atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
-    }
+    
     
 }
 
