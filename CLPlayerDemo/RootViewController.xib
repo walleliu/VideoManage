@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <deployment version="2304" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -26,7 +25,6 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="BCT-iN-mRY"/>
                     </constraints>
-                    <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
@@ -37,7 +35,6 @@
                         <constraint firstAttribute="height" constant="30" id="KYs-Kp-fPP"/>
                         <constraint firstAttribute="width" constant="116" id="ZYr-1m-l3V"/>
                     </constraints>
-                    <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
@@ -96,9 +93,10 @@
                 <constraint firstItem="Ix8-2C-ouS" firstAttribute="top" secondItem="aOn-CI-jdr" secondAttribute="bottom" constant="49" id="scR-Xr-iXl"/>
                 <constraint firstItem="aOn-CI-jdr" firstAttribute="top" secondItem="HFL-iH-pgF" secondAttribute="bottom" constant="8" id="wIS-6t-boT"/>
             </constraints>
+            <viewLayoutGuide key="safeArea" id="Pdr-12-iHB"/>
             <point key="canvasLocation" x="131.8840579710145" y="153.34821428571428"/>
         </view>
-        <tapGestureRecognizer numberOfTapsRequired="10" numberOfTouchesRequired="2" id="9ez-ij-021">
+        <tapGestureRecognizer numberOfTapsRequired="10" id="9ez-ij-021">
             <connections>
                 <action selector="tap:" destination="-1" id="YsM-bZ-Q5R"/>
                 <outlet property="delegate" destination="DM4-Sx-0s0" id="OhW-bT-1ct"/>

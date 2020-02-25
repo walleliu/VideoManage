@@ -15,8 +15,7 @@
 @end
 
 @implementation RootViewController
-- (IBAction)dddd:(UIButton *)sender {
-}
+
 
 - (IBAction)buttonAction:(UIButton *)sender {
     NSLog(@"按钮连接");
