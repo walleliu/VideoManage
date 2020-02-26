@@ -79,6 +79,7 @@
 /**tableView*/
 - (UITableView *) tableView{
     if (_tableView == nil){
+        
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, CLscreenWidth, CLscreenHeight - 64 - 49) style:UITableViewStyleGrouped];
         _tableView.delegate = self;
         _tableView.dataSource = self;
@@ -90,12 +91,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[UINavigationBar appearance] setTranslucent:NO];
+    self.navigationController.navigationBar.translucent = NO;
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"分类";
-    
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     [self.view addSubview:self.tableView];
-    self.automaticallyAdjustsScrollViewInsets = NO;
+//    self.automaticallyAdjustsScrollViewInsets = NO;
     UIButton *editBtn = [[UIButton alloc] init];
     [editBtn setTitle:@"创建文件夹" forState:UIControlStateNormal];
     [editBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -138,6 +139,39 @@
     }
     return cell;
 }
+
+-(void)tableView:(UITableView*)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath*)indexPath{
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        [self deleteSelectIndexPath: indexPath];
+        
+    }
+    
+}
+- (void)deleteSelectIndexPath:(NSIndexPath  *)indexPath{
+    
+    UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"是否删除此数据" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *actionCancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+    UIAlertAction *actionOK = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"确定");
+        //获取Document文件的路径
+        NSArray *filePath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *collectPath = filePath.lastObject;
+        collectPath = [collectPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",self.dataArray[indexPath.row][@"Name"]]];
+        NSString *path = [NSString stringWithFormat:@"%@",collectPath];
+        [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
+        self.dataArray = nil;
+        [self.tableView reloadData];
+    }];
+    
+    [alertC addAction:actionCancel];
+    [alertC addAction:actionOK];
+    [self presentViewController:alertC animated:YES completion:nil];
+    
+}
+
 //在willDisplayCell里面处理数据能优化tableview的滑动流畅性
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     cell.textLabel.text = self.dataArray[indexPath.row][@"Name"];

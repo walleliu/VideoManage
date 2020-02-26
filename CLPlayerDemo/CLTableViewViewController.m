@@ -258,7 +258,6 @@ static NSString *CLTableViewCellIdentifier = @"CLTableViewCellIdentifier";
 #pragma mark - 布局
 -(void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
-    [[UINavigationBar appearance] setTranslucent:NO];
     self.tableView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     
     

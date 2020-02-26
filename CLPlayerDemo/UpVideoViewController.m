@@ -9,6 +9,10 @@
 #import "UpVideoViewController.h"
 #import "MMPhotoPickerController.h"//上传视频
 #import "CLTableViewViewController.h"//查看视频
+
+#import "ImageTableViewCell.h"
+#import "secondCellModel.h"
+
 @interface UpVideoViewController ()<MMPhotoPickerDelegate,UITextFieldDelegate>
 /**数据源*/
 @property (nonatomic, strong) NSMutableArray *arrayDS;
@@ -31,6 +35,7 @@
     [editBtn addTarget:self action:@selector(postVideoClick) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *editItem = [[UIBarButtonItem alloc] initWithCustomView:editBtn];
     self.navigationItem.rightBarButtonItem = editItem;
+    [self.tableview registerNib:[UINib nibWithNibName:@"ImageTableViewCell" bundle:nil] forCellReuseIdentifier:@"UITableViewCell"];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -91,20 +96,29 @@
 
         
     }];
+//    NSArray *filePath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    //获取Document文件的路径
+//    NSString *collectPath = filePath.lastObject;
     
     NSMutableArray  *listArray = [NSMutableArray new];//最终数组
     for (NSString *fileName in fileList) {
-//        NSString     *filePath = [path stringByAppendingPathComponent:fileName];
-//        NSDictionary *fileInfo = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil];  // 获取文件信息
+        NSString     *filePath = [path stringByAppendingPathComponent:fileName];
+        NSDictionary *fileInfo = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil];  // 获取文件信息
         
-        NSMutableDictionary *fileDic = [NSMutableDictionary new];
-        fileDic[@"Name"] = fileName;//文件名字
+//        NSMutableDictionary *fileDic = [NSMutableDictionary new];
+//        fileDic[@"Name"] = fileName;//文件名字
 //        fileDic[NSFileSize] = fileInfo[NSFileSize];//文件大小
 //        fileDic[NSFileCreationDate] = fileInfo[NSFileCreationDate];//时间
-        [listArray addObject:fileDic];
+        secondCellModel *model = [secondCellModel new];
+//        model.pictureUrl = [NSString stringWithFormat:@"%@/%@",path,fileName];
+        model.videoUrl = [NSString stringWithFormat:@"%@/%@",path,fileName];
+        model.videoName = [NSString stringWithFormat:@"%@",fileName];
+        model.videoSize = [NSString stringWithFormat:@"%.2f MB",[fileInfo[NSFileSize] floatValue]/1024.0/1024.0];
+//        model.videoTime = [NSString stringWithFormat:@"%@",fileInfo[NSFileCreationDate]];
+        [listArray addObject:model];
     }
     
-    NSLog(@"visitDirectoryList = %@", listArray);
+    NSLog(@"详细列表visitDirectoryList = %@", listArray);
 
     return listArray;
 }
@@ -116,23 +130,25 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     //复用Cell
     static NSString *Identifier=@"UITableViewCell";
-    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:Identifier];
+    ImageTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:Identifier];
     if(!cell){
-        cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:Identifier];
+        cell=[[ImageTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:Identifier];
+        
     }
     return cell;
 }
 //在willDisplayCell里面处理数据能优化tableview的滑动流畅性
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([self.arrayDS[indexPath.row] isKindOfClass:[NSDictionary class]]) {
-        cell.textLabel.text = [NSString stringWithFormat:@"%ld.%@",indexPath.row,[self.arrayDS[indexPath.row] objectForKey:@"Name"]];
-    }else{
-        cell.textLabel.text = self.arrayDS[indexPath.row];
+    ImageTableViewCell * myCell = (ImageTableViewCell *)cell;
+
+    if ([self.arrayDS[indexPath.row] isKindOfClass:[secondCellModel class]]) {
+        myCell.model = self.arrayDS[indexPath.row];
+
     }
 
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 50;
+    return 80;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -248,7 +264,8 @@
                 for (int i = 0; i < [info count]; i ++)
                 {
                     NSMutableDictionary * dict = [NSMutableDictionary dictionaryWithDictionary:[info objectAtIndex:i]];
-                    NSData*data = [NSData dataWithContentsOfURL:[dict objectForKey:MMPhotoVideoURL]];
+                    
+                    NSData*data = [NSData dataWithContentsOfFile:[dict objectForKey:MMPhotoVideoURL]];
                     [self WriteToBox:data withName:self.videoName];
                     UIImage * image = [dict objectForKey:MMPhotoOriginalImage];
                     
@@ -302,8 +319,7 @@
     //    //拼接新路径
     NSString *newPath = [collectPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp4",name]];
     NSLog(@"++%@",newPath);
-    [imageData writeToFile:newPath atomically:YES];
-    
+    BOOL writeSuccess  = [imageData writeToFile:newPath atomically:YES];
 }
 #pragma mark --<UITextFieldDelegate>
 -(void)textFieldDidEndEditing:(UITextField *)textField{
@@ -324,4 +340,6 @@
     self.arrayDS = nil;
     [self.tableview reloadData];
 }
+
+
 @end

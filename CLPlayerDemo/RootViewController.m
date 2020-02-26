@@ -46,7 +46,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"智能家居";
-    [[UINavigationBar appearance] setTranslucent:NO];
+    self.navigationController.navigationBar.translucent = NO;
     // Do any additional setup after loading the view from its nib.
 }
 

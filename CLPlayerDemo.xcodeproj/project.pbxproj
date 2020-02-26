@@ -11,6 +11,9 @@
 		1137FBAD23A085C0005A8FD1 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1137FBAB23A085C0005A8FD1 /* WebViewController.swift */; };
 		1137FBAE23A085C0005A8FD1 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1137FBAC23A085C0005A8FD1 /* WebViewController.xib */; };
 		1137FBB023A098AB005A8FD1 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1137FBAF23A098AB005A8FD1 /* File.swift */; };
+		11913CB9240646F800D301B0 /* ImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11913CB7240646F800D301B0 /* ImageTableViewCell.m */; };
+		11913CBA240646F800D301B0 /* ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11913CB8240646F800D301B0 /* ImageTableViewCell.xib */; };
+		11913CBE24064A8700D301B0 /* secondCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 11913CBD24064A8700D301B0 /* secondCellModel.m */; };
 		11F36AD322DC8E2700163FEA /* UIView+Geometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F36AC322DC8E2700163FEA /* UIView+Geometry.m */; };
 		11F36AD422DC8E2700163FEA /* PHAsset+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F36AC722DC8E2700163FEA /* PHAsset+Category.m */; };
 		11F36AD522DC8E2700163FEA /* MMPhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F36AC822DC8E2700163FEA /* MMPhotoPickerController.m */; };
@@ -50,6 +53,11 @@
 		1137FBAB23A085C0005A8FD1 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		1137FBAC23A085C0005A8FD1 /* WebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		1137FBAF23A098AB005A8FD1 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		11913CB6240646F800D301B0 /* ImageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageTableViewCell.h; sourceTree = "<group>"; };
+		11913CB7240646F800D301B0 /* ImageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageTableViewCell.m; sourceTree = "<group>"; };
+		11913CB8240646F800D301B0 /* ImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageTableViewCell.xib; sourceTree = "<group>"; };
+		11913CBC24064A8700D301B0 /* secondCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = secondCellModel.h; sourceTree = "<group>"; };
+		11913CBD24064A8700D301B0 /* secondCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = secondCellModel.m; sourceTree = "<group>"; };
 		11B7559323A0819200FB2286 /* CLPlayerDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CLPlayerDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		11F36AC322DC8E2700163FEA /* UIView+Geometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Geometry.m"; sourceTree = "<group>"; };
 		11F36AC422DC8E2700163FEA /* MMPhotoUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPhotoUtil.h; sourceTree = "<group>"; };
@@ -124,6 +132,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11913CBB24064A4300D301B0 /* secondList */ = {
+			isa = PBXGroup;
+			children = (
+				11F36AE022DD7D0000163FEA /* UpVideoViewController.h */,
+				11F36AE122DD7D0000163FEA /* UpVideoViewController.m */,
+				11F36AE222DD7D0000163FEA /* UpVideoViewController.xib */,
+				11913CB6240646F800D301B0 /* ImageTableViewCell.h */,
+				11913CB7240646F800D301B0 /* ImageTableViewCell.m */,
+				11913CB8240646F800D301B0 /* ImageTableViewCell.xib */,
+				11913CBC24064A8700D301B0 /* secondCellModel.h */,
+				11913CBD24064A8700D301B0 /* secondCellModel.m */,
+			);
+			name = secondList;
+			sourceTree = "<group>";
+		};
 		11F36AC222DC8E2700163FEA /* MMPhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,11 +266,9 @@
 		5BB4D1001F34594E007A1742 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				11913CBB24064A4300D301B0 /* secondList */,
 				11F36ADB22DD79A000163FEA /* CLViewController.h */,
 				11F36ADC22DD79A000163FEA /* CLViewController.m */,
-				11F36AE022DD7D0000163FEA /* UpVideoViewController.h */,
-				11F36AE122DD7D0000163FEA /* UpVideoViewController.m */,
-				11F36AE222DD7D0000163FEA /* UpVideoViewController.xib */,
 				5BB4D0FF1F345925007A1742 /* TableViewViewController */,
 				11F36AC222DC8E2700163FEA /* MMPhotoPicker */,
 				5BB4D1011F3459A3007A1742 /* Gategory */,
@@ -365,6 +386,7 @@
 				11F36AE922DDA2DC00163FEA /* RootViewController.xib in Resources */,
 				1137FBAE23A085C0005A8FD1 /* WebViewController.xib in Resources */,
 				5B73AAB91DCB0881007680C1 /* Assets.xcassets in Resources */,
+				11913CBA240646F800D301B0 /* ImageTableViewCell.xib in Resources */,
 				11F36AE422DD7D0000163FEA /* UpVideoViewController.xib in Resources */,
 				5BB4D1081F345A7D007A1742 /* CLPlayer.bundle in Resources */,
 			);
@@ -435,9 +457,11 @@
 				11F36AD922DC8E2700163FEA /* MMPhotoCropController.m in Sources */,
 				5BB55D0A1FC549A800CC8327 /* CLPlayerView.m in Sources */,
 				11F36ADA22DC8E2700163FEA /* MMPhotoPreviewController.m in Sources */,
+				11913CB9240646F800D301B0 /* ImageTableViewCell.m in Sources */,
 				1137FBAD23A085C0005A8FD1 /* WebViewController.swift in Sources */,
 				11F36ADD22DD79A000163FEA /* CLViewController.m in Sources */,
 				5B456F8F1E60164000C9599F /* UIView+CLSetRect.m in Sources */,
+				11913CBE24064A8700D301B0 /* secondCellModel.m in Sources */,
 				5BDEA7161E63F4BB00953D5D /* CLPlayerMaskView.m in Sources */,
 				5BDEA7181E63F4BB00953D5D /* CLSlider.m in Sources */,
 				0CD6AE3D214FACB000BCE29D /* CLGCDTimerManager.m in Sources */,
