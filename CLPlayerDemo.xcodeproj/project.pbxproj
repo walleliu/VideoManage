@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0CD6AE3D214FACB000BCE29D /* CLGCDTimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD6AE3B214FACAF00BCE29D /* CLGCDTimerManager.m */; };
+		1137FBAD23A085C0005A8FD1 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1137FBAB23A085C0005A8FD1 /* WebViewController.swift */; };
+		1137FBAE23A085C0005A8FD1 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1137FBAC23A085C0005A8FD1 /* WebViewController.xib */; };
+		1137FBB023A098AB005A8FD1 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1137FBAF23A098AB005A8FD1 /* File.swift */; };
 		11F36AD322DC8E2700163FEA /* UIView+Geometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F36AC322DC8E2700163FEA /* UIView+Geometry.m */; };
 		11F36AD422DC8E2700163FEA /* PHAsset+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F36AC722DC8E2700163FEA /* PHAsset+Category.m */; };
 		11F36AD522DC8E2700163FEA /* MMPhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F36AC822DC8E2700163FEA /* MMPhotoPickerController.m */; };
@@ -22,7 +25,6 @@
 		11F36AE822DDA2DC00163FEA /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F36AE622DDA2DC00163FEA /* RootViewController.m */; };
 		11F36AE922DDA2DC00163FEA /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11F36AE722DDA2DC00163FEA /* RootViewController.xib */; };
 		453E2AAA1F3C97900003AB0C /* AILoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 453E2AA91F3C97900003AB0C /* AILoadingView.m */; };
-		52CFF55482649C3F8FF48753 /* libPods-CLPlayerDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 188363D6831D09896A05B358 /* libPods-CLPlayerDemo.a */; };
 		5B1FC4C81DC850820036C489 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1FC4C71DC850820036C489 /* main.m */; };
 		5B1FC4CB1DC850820036C489 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1FC4CA1DC850820036C489 /* AppDelegate.m */; };
 		5B1FC4D61DC850820036C489 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B1FC4D41DC850820036C489 /* LaunchScreen.storyboard */; };
@@ -39,11 +41,16 @@
 		5BB55D0A1FC549A800CC8327 /* CLPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB55D081FC549A700CC8327 /* CLPlayerView.m */; };
 		5BDEA7161E63F4BB00953D5D /* CLPlayerMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BDEA7101E63F4BB00953D5D /* CLPlayerMaskView.m */; };
 		5BDEA7181E63F4BB00953D5D /* CLSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BDEA7141E63F4BB00953D5D /* CLSlider.m */; };
+		6ADDB34EFB7F377B02A9D499 /* Pods_CLPlayerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C9446C64400F502EE8572A8 /* Pods_CLPlayerDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0CD6AE3B214FACAF00BCE29D /* CLGCDTimerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLGCDTimerManager.m; sourceTree = "<group>"; };
 		0CD6AE3C214FACAF00BCE29D /* CLGCDTimerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLGCDTimerManager.h; sourceTree = "<group>"; };
+		1137FBAB23A085C0005A8FD1 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		1137FBAC23A085C0005A8FD1 /* WebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		1137FBAF23A098AB005A8FD1 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		11B7559323A0819200FB2286 /* CLPlayerDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CLPlayerDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		11F36AC322DC8E2700163FEA /* UIView+Geometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Geometry.m"; sourceTree = "<group>"; };
 		11F36AC422DC8E2700163FEA /* MMPhotoUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPhotoUtil.h; sourceTree = "<group>"; };
 		11F36AC522DC8E2700163FEA /* MMPhotoAssetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPhotoAssetController.h; sourceTree = "<group>"; };
@@ -69,7 +76,7 @@
 		11F36AE622DDA2DC00163FEA /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		11F36AE722DDA2DC00163FEA /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		133621D737F2050001C8A017 /* Pods-CLPlayerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLPlayerDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CLPlayerDemo/Pods-CLPlayerDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		188363D6831D09896A05B358 /* libPods-CLPlayerDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CLPlayerDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C9446C64400F502EE8572A8 /* Pods_CLPlayerDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CLPlayerDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		453E2AA81F3C97900003AB0C /* AILoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AILoadingView.h; sourceTree = "<group>"; };
 		453E2AA91F3C97900003AB0C /* AILoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AILoadingView.m; sourceTree = "<group>"; };
 		5B1FC4C31DC850820036C489 /* CLPlayerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CLPlayerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,7 +117,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B1FC4FB1DC850EF0036C489 /* MediaPlayer.framework in Frameworks */,
-				52CFF55482649C3F8FF48753 /* libPods-CLPlayerDemo.a in Frameworks */,
+				6ADDB34EFB7F377B02A9D499 /* Pods_CLPlayerDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +185,10 @@
 				5BB4D1001F34594E007A1742 /* Class */,
 				5BDEA70C1E63F4BB00953D5D /* CLPlayer */,
 				5B1FC4C61DC850820036C489 /* Supporting Files */,
+				11B7559323A0819200FB2286 /* CLPlayerDemo-Bridging-Header.h */,
+				1137FBAB23A085C0005A8FD1 /* WebViewController.swift */,
+				1137FBAF23A098AB005A8FD1 /* File.swift */,
+				1137FBAC23A085C0005A8FD1 /* WebViewController.xib */,
 			);
 			path = CLPlayerDemo;
 			sourceTree = "<group>";
@@ -197,7 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				5B1FC4FA1DC850EF0036C489 /* MediaPlayer.framework */,
-				188363D6831D09896A05B358 /* libPods-CLPlayerDemo.a */,
+				2C9446C64400F502EE8572A8 /* Pods_CLPlayerDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -298,6 +309,7 @@
 				5B1FC4BF1DC850820036C489 /* Sources */,
 				5B1FC4C01DC850820036C489 /* Frameworks */,
 				5B1FC4C11DC850820036C489 /* Resources */,
+				A5C380EA8A2A80DFDE1BC0F9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -320,6 +332,7 @@
 					5B1FC4C21DC850820036C489 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = S76V79Y893;
+						LastSwiftMigration = 1110;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -350,6 +363,7 @@
 				11F36AD622DC8E2700163FEA /* MMPhotoPicker.xcassets in Resources */,
 				5B1FC4D61DC850820036C489 /* LaunchScreen.storyboard in Resources */,
 				11F36AE922DDA2DC00163FEA /* RootViewController.xib in Resources */,
+				1137FBAE23A085C0005A8FD1 /* WebViewController.xib in Resources */,
 				5B73AAB91DCB0881007680C1 /* Assets.xcassets in Resources */,
 				11F36AE422DD7D0000163FEA /* UpVideoViewController.xib in Resources */,
 				5BB4D1081F345A7D007A1742 /* CLPlayer.bundle in Resources */,
@@ -359,6 +373,30 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		A5C380EA8A2A80DFDE1BC0F9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CLPlayerDemo/Pods-CLPlayerDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CLPlayerDemo/Pods-CLPlayerDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BF74B56DB434491DF9FB4379 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -397,6 +435,7 @@
 				11F36AD922DC8E2700163FEA /* MMPhotoCropController.m in Sources */,
 				5BB55D0A1FC549A800CC8327 /* CLPlayerView.m in Sources */,
 				11F36ADA22DC8E2700163FEA /* MMPhotoPreviewController.m in Sources */,
+				1137FBAD23A085C0005A8FD1 /* WebViewController.swift in Sources */,
 				11F36ADD22DD79A000163FEA /* CLViewController.m in Sources */,
 				5B456F8F1E60164000C9599F /* UIView+CLSetRect.m in Sources */,
 				5BDEA7161E63F4BB00953D5D /* CLPlayerMaskView.m in Sources */,
@@ -406,6 +445,7 @@
 				11F36AD722DC8E2700163FEA /* MMPhotoAssetController.m in Sources */,
 				5BB4D0D91F31A1F1007A1742 /* CLTableViewViewController.m in Sources */,
 				11F36AD522DC8E2700163FEA /* MMPhotoPickerController.m in Sources */,
+				1137FBB023A098AB005A8FD1 /* File.swift in Sources */,
 				11F36AD422DC8E2700163FEA /* PHAsset+Category.m in Sources */,
 				5BA0AF581F4292670097B9B2 /* UIViewController+CLPlayerRotation.m in Sources */,
 			);
@@ -540,15 +580,20 @@
 			baseConfigurationReference = 133621D737F2050001C8A017 /* Pods-CLPlayerDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = S76V79Y893;
 				INFOPLIST_FILE = CLPlayerDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = learningSwift.switf.learningSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = learningSwift;
+				SWIFT_OBJC_BRIDGING_HEADER = "CLPlayerDemo/CLPlayerDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -558,15 +603,19 @@
 			baseConfigurationReference = BA727F0172B5759313BFAF15 /* Pods-CLPlayerDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = S76V79Y893;
 				INFOPLIST_FILE = CLPlayerDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = learningSwift.switf.learningSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = learningSwift;
+				SWIFT_OBJC_BRIDGING_HEADER = "CLPlayerDemo/CLPlayerDemo-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

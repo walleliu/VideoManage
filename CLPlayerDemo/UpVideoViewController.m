@@ -235,42 +235,46 @@
 #pragma mark - MMPhotoPickerDelegate
 - (void)mmPhotoPickerController:(MMPhotoPickerController *)picker didFinishPickingMediaWithInfo:(NSArray *)info
 {
-    //    [self.infoArray removeAllObjects];
-    UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"填写名称" message:@"请输入视频名称" preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction *actionCancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
-    UIAlertAction *actionOK = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"确定");
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            
-            // 图片压缩一下，不然大图显示太慢
-            for (int i = 0; i < [info count]; i ++)
-            {
-                NSMutableDictionary * dict = [NSMutableDictionary dictionaryWithDictionary:[info objectAtIndex:i]];
-                NSData*data = [NSData dataWithContentsOfURL:[dict objectForKey:MMPhotoVideoURL]];
-                [self WriteToBox:data withName:self.videoName];
-                UIImage * image = [dict objectForKey:MMPhotoOriginalImage];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        //    [self.infoArray removeAllObjects];
+        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"填写名称" message:@"请输入视频名称" preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *actionCancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+        UIAlertAction *actionOK = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            NSLog(@"确定");
+            dispatch_async(dispatch_get_global_queue(0, 0), ^{
                 
-                [dict setObject:image forKey:MMPhotoOriginalImage];
-                //                [self.infoArray addObject:dict];
-            }
-            
-            GCD_MAIN(^{ // 主线程
-                //                [self.collectionView reloadData];
-                [picker dismissViewControllerAnimated:YES completion:nil];
-                self.arrayDS = nil;
-                [self.tableview reloadData];
+                // 图片压缩一下，不然大图显示太慢
+                for (int i = 0; i < [info count]; i ++)
+                {
+                    NSMutableDictionary * dict = [NSMutableDictionary dictionaryWithDictionary:[info objectAtIndex:i]];
+                    NSData*data = [NSData dataWithContentsOfURL:[dict objectForKey:MMPhotoVideoURL]];
+                    [self WriteToBox:data withName:self.videoName];
+                    UIImage * image = [dict objectForKey:MMPhotoOriginalImage];
+                    
+                    [dict setObject:image forKey:MMPhotoOriginalImage];
+                    //                [self.infoArray addObject:dict];
+                }
+                
+                GCD_MAIN(^{ // 主线程
+                    //                [self.collectionView reloadData];
+                    [picker dismissViewControllerAnimated:YES completion:nil];
+                    self.arrayDS = nil;
+                    [self.tableview reloadData];
+                });
             });
-        });
-    }];
-    [alertC addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        self.videoName = textField.text;
-        textField.delegate = self;
-    }];
+        }];
+        [alertC addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+            self.videoName = textField.text;
+            textField.delegate = self;
+        }];
+        
+        [alertC addAction:actionCancel];
+        [alertC addAction:actionOK];
+        
+        [_navigation presentViewController:alertC animated:YES completion:nil];
+    });
     
-    [alertC addAction:actionCancel];
-    [alertC addAction:actionOK];
-    [_navigation presentViewController:alertC animated:YES completion:nil];
     
     
 }

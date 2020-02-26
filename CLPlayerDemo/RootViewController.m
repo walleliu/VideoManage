@@ -8,6 +8,7 @@
 
 #import "RootViewController.h"
 #import "CLViewController.h"
+#import "CLPlayerDemo-Swift.h"
 @interface RootViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *ipLabel;
 @property (weak, nonatomic) IBOutlet UITextField *portLabel;
@@ -31,6 +32,12 @@
     [alertC addAction:actionCancel];
     [alertC addAction:actionOK];
     [self presentViewController:alertC animated:YES completion:nil];
+}
+- (IBAction)gotoWeb:(UITapGestureRecognizer *)sender {
+    NSLog(@"进入web");
+    WebViewController *webVC = [WebViewController new];
+    [self.navigationController pushViewController:webVC animated:YES];
+    
 }
 - (IBAction)tap:(UITapGestureRecognizer *)sender {
     NSLog(@"tap点击");
