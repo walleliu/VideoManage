@@ -177,10 +177,11 @@
     UIAlertAction *actionOK = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         NSLog(@"确定");
         //获取Document文件的路径
+        secondCellModel *deleteModel = self.arrayDS[indexPath.row];
         NSArray *filePath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *collectPath = filePath.lastObject;
         collectPath = [collectPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",self.leibieName]];
-        NSString *path = [NSString stringWithFormat:@"%@/%@",collectPath,[self.arrayDS[indexPath.row] objectForKey:@"Name"]];
+        NSString *path = [NSString stringWithFormat:@"%@/%@",collectPath,deleteModel.videoName ];
         [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
         self.arrayDS = nil;
         [self.tableview reloadData];
@@ -233,12 +234,13 @@
     // 优先级 cropOption > singleOption > maxNumber
     // cropOption = YES 时，不显示视频
     MMPhotoPickerController * controller = [[MMPhotoPickerController alloc] init];
+    controller.isOrigin = YES;
     controller.delegate = self;
     controller.showEmptyAlbum = NO;
     controller.showVideo = YES;
     controller.cropOption = NO;
     controller.singleOption = YES;
-    controller.maxNumber = 6;
+    controller.maxNumber = 1;
     
     _navigation = [[UINavigationController alloc] initWithRootViewController:controller];
     [_navigation.navigationBar setBackgroundImage:[UIImage imageNamed:@"default_bar"] forBarMetrics:UIBarMetricsDefault];

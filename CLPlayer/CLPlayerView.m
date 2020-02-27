@@ -190,7 +190,20 @@ typedef NS_ENUM(NSInteger, CLPanDirection){
     [session setCategory:AVAudioSessionCategoryPlayback error:nil];
     [session setActive:YES error:nil];
     _url                      = url;
-    self.playerItem           = [AVPlayerItem playerItemWithAsset:[AVAsset assetWithURL:_url]];
+    //获取视频尺寸
+    AVURLAsset *asset = [AVURLAsset assetWithURL:url];
+    NSArray *array = asset.tracks;
+    CGSize videoSize = CGSizeZero;
+    
+    for (AVAssetTrack *track in array) {
+        if ([track.mediaType isEqualToString:AVMediaTypeVideo]) {
+            videoSize = track.naturalSize;
+        }
+    }
+        
+        
+
+    self.playerItem           = [AVPlayerItem playerItemWithAsset:asset];
     //创建
     _player                   = [AVPlayer playerWithPlayerItem:_playerItem];
     _playerLayer              = (AVPlayerLayer *)self.playerLayerView.layer;
@@ -783,7 +796,7 @@ typedef NS_ENUM(NSInteger, CLPanDirection){
         if (direction == UIInterfaceOrientationLandscapeLeft){
             [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight animated:YES];
             [UIView animateWithDuration:duration animations:^{
-                self.transform = CGAffineTransformMakeRotation(M_PI / 2);
+//                self.transform = CGAffineTransformMakeRotation(M_PI / 2);
             }completion:^(BOOL finished) {
                 [self hiddenStatusBarWithFullStatusBarHiddenType];
             }];

@@ -222,7 +222,7 @@ static NSString *CLTableViewCellIdentifier = @"CLTableViewCellIdentifier";
 
     [_playerView updateWithConfigure:^(CLPlayerViewConfigure *configure) {
         configure.topToolBarHiddenType = TopToolBarHiddenSmall;
-        configure.fullStatusBarHiddenType = FullStatusBarHiddenFollowToolBar;
+        configure.fullStatusBarHiddenType = FullStatusBarHiddenAlways;
         configure.videoFillMode = VideoFillModeResizeAspect;
         configure.smallGestureControl = YES;
     }];
