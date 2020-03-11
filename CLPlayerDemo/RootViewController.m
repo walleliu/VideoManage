@@ -40,7 +40,11 @@
 }
 - (IBAction)tap:(UITapGestureRecognizer *)sender {
     NSLog(@"tap点击");
+    NSArray *filePath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    //获取Document文件的路径
+    NSString *collectPath = filePath.lastObject;
     CLViewController *tabVC = [CLViewController new];
+    tabVC.currentPath = collectPath;
     [self.navigationController pushViewController:tabVC animated:YES];
 }
 - (void)viewDidLoad {

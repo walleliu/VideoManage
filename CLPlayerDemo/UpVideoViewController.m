@@ -63,62 +63,17 @@
 //获取沙盒文件 排序
 - (NSMutableArray *)visitDirectoryList:(NSString *)path Isascending:(BOOL)isascending {
     NSArray *fileList  = [[NSFileManager defaultManager] subpathsAtPath:path];  // 取得目录下所有文件列表
-    fileList = [fileList sortedArrayUsingComparator:^(NSString *firFile, NSString *secFile) {  // 将文件列表排序
-        if (self->_sortType == 0) {
-            //时间排序
-            NSString *firPath = [path stringByAppendingPathComponent:firFile];  // 获取前一个文件完整路径
-            NSString *secPath = [path stringByAppendingPathComponent:secFile];  // 获取后一个文件完整路径
-            NSDictionary *firFileInfo = [[NSFileManager defaultManager] attributesOfItemAtPath:firPath error:nil];  // 获取前一个文件信息
-            NSDictionary *secFileInfo = [[NSFileManager defaultManager] attributesOfItemAtPath:secPath error:nil];  // 获取后一个文件信息
-            id firData = [firFileInfo objectForKey:NSFileCreationDate];  // 获取前一个文件创建时间
-            id secData = [secFileInfo objectForKey:NSFileCreationDate];  // 获取后一个文件创建时间
-            
-            if (isascending) {
-                return [firData compare:secData];  // 升序
-            } else {
-                return [secData compare:firData];  // 降序
-            }
-        }else if (self->_sortType == 1) {
-            //名称排序
-            if (isascending) {
-                return [firFile compare:secFile];  // 升序
-            } else {
-                return [secFile compare:firFile];  // 降序
-            }
-        }else{
-            //默认 名称排序
-            if (isascending) {
-                return [firFile compare:secFile];  // 升序
-            } else {
-                return [secFile compare:firFile];  // 降序
-            }
-        }
-
-        
-    }];
-//    NSArray *filePath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//    //获取Document文件的路径
-//    NSString *collectPath = filePath.lastObject;
-    
     NSMutableArray  *listArray = [NSMutableArray new];//最终数组
     for (NSString *fileName in fileList) {
         NSString     *filePath = [path stringByAppendingPathComponent:fileName];
         NSDictionary *fileInfo = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil];  // 获取文件信息
-        
-//        NSMutableDictionary *fileDic = [NSMutableDictionary new];
-//        fileDic[@"Name"] = fileName;//文件名字
-//        fileDic[NSFileSize] = fileInfo[NSFileSize];//文件大小
-//        fileDic[NSFileCreationDate] = fileInfo[NSFileCreationDate];//时间
-        secondCellModel *model = [secondCellModel new];
-//        model.pictureUrl = [NSString stringWithFormat:@"%@/%@",path,fileName];
-        model.videoUrl = [NSString stringWithFormat:@"%@/%@",path,fileName];
-        model.videoName = [NSString stringWithFormat:@"%@",fileName];
-        model.videoSize = [NSString stringWithFormat:@"%.2f MB",[fileInfo[NSFileSize] floatValue]/1024.0/1024.0];
-//        model.videoTime = [NSString stringWithFormat:@"%@",fileInfo[NSFileCreationDate]];
-        [listArray addObject:model];
+//        secondCellModel *model = [secondCellModel new];
+//        model.videoUrl = [NSString stringWithFormat:@"%@/%@",path,fileName];
+//        model.videoName = [NSString stringWithFormat:@"%@",fileName];
+//        model.videoSize = [NSString stringWithFormat:@"%.2f MB",[fileInfo[NSFileSize] floatValue]/1024.0/1024.0];
+
+//        [listArray addObject:model];
     }
-    
-    NSLog(@"详细列表visitDirectoryList = %@", listArray);
 
     return listArray;
 }
@@ -181,8 +136,8 @@
         NSArray *filePath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *collectPath = filePath.lastObject;
         collectPath = [collectPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",self.leibieName]];
-        NSString *path = [NSString stringWithFormat:@"%@/%@",collectPath,deleteModel.videoName ];
-        [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
+//        NSString *path = [NSString stringWithFormat:@"%@/%@",collectPath,deleteModel.videoName ];
+//        [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
         self.arrayDS = nil;
         [self.tableview reloadData];
     }];
@@ -321,7 +276,7 @@
     //    //拼接新路径
     NSString *newPath = [collectPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp4",name]];
     NSLog(@"++%@",newPath);
-    BOOL writeSuccess  = [imageData writeToFile:newPath atomically:YES];
+    [imageData writeToFile:newPath atomically:YES];
 }
 #pragma mark --<UITextFieldDelegate>
 -(void)textFieldDidEndEditing:(UITextField *)textField{

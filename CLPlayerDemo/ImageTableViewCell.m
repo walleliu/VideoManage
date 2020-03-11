@@ -33,16 +33,16 @@
 -(void)setModel:(secondCellModel *)model{
     _model = model;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        UIImage * iii = [self getScreenShotImageFromVideoPath:model.videoUrl];
+        UIImage * iii = [self getScreenShotImageFromVideoPath:model.flieUrl];
         if (iii) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.videoImageView.image = iii;
             });
         }
     });
-    self.videoNameL.text = model.videoName;
-    self.videoSizeL.text = model.videoSize;
-    self.videoTimeL.text = [self getMMSSFromSS:[self getVideoTimeByUrlString:model.videoUrl]];
+    self.videoNameL.text = model.fileName;
+    self.videoSizeL.text = model.fileSize;
+    self.videoTimeL.text = [self getMMSSFromSS:[self getVideoTimeByUrlString:model.flieUrl]];
     //    self.videoLength.text = [self getMMSSFromSS:[self getVideoTimeByUrlString:model.videoUrl]];
 }
 

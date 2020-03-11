@@ -7,4 +7,5 @@ target 'CLPlayerDemo' do
   pod 'SDWebImage'
   pod 'Masonry'
   pod 'RealmSwift'
+  pod 'YCMenuView'
 end

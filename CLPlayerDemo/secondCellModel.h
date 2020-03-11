@@ -11,16 +11,20 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface secondCellModel : NSObject
-/////**图片url*/
+@property (nonatomic, assign) NSInteger fileType;//1 文件夹 2 视频 3 图片
+/////**视频属性*/
 //@property (nonatomic, copy) NSString *videoTime;
-/**视频url*/
-@property (nonatomic, copy) NSString *videoUrl;
+/**文件url*/
+@property (nonatomic, copy) NSString *flieUrl;
 
-/**视频名称*/
-@property (nonatomic, copy) NSString *videoName;
+/**文件名称*/
+@property (nonatomic, copy) NSString *fileName;
 
-/**视频大小*/
-@property (nonatomic, copy) NSString *videoSize;
+/**文件大小*/
+@property (nonatomic, copy) NSString *fileSize;
+
+/**文件夹包含数量*/
+@property (nonatomic, copy) NSString *fileNum;
 
 @end
 

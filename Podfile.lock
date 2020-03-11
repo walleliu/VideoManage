@@ -8,11 +8,13 @@ PODS:
   - SDWebImage (5.4.0):
     - SDWebImage/Core (= 5.4.0)
   - SDWebImage/Core (5.4.0)
+  - YCMenuView (1.2.0)
 
 DEPENDENCIES:
   - Masonry
   - RealmSwift
   - SDWebImage
+  - YCMenuView
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -20,13 +22,15 @@ SPEC REPOS:
     - Realm
     - RealmSwift
     - SDWebImage
+    - YCMenuView
 
 SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   Realm: 25f0a8244cbb1c2271c922963ea8666fc2d8104d
   RealmSwift: 9e2657b33764f80e4a4dffd6d440e24715782052
   SDWebImage: 5bf6aec6481ae2a062bdc59f9d6c1d1e552090e0
+  YCMenuView: 25e16d2d3fa70fdb2f64a59a4531e5bdfaacf202
 
-PODFILE CHECKSUM: 4e7e8d25e52aadcfb8335163c87b17d000690c96
+PODFILE CHECKSUM: 1be7e42eb5e56e90cdd88e1fb44052c98e33f6fd
 
 COCOAPODS: 1.8.4

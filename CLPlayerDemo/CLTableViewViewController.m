@@ -40,6 +40,7 @@ static NSString *CLTableViewCellIdentifier = @"CLTableViewCellIdentifier";
         //获取Document文件的路径
         NSString *collectPath = filePath.lastObject;
         collectPath = [collectPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",_leibieName]];
+        
         NSMutableArray *fileArr = [self visitDirectoryList:collectPath Isascending:YES];
         
 //        NSData *JSONData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Date" ofType:@"json"]];

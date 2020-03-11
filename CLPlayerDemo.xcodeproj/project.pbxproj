@@ -14,6 +14,7 @@
 		11913CB9240646F800D301B0 /* ImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11913CB7240646F800D301B0 /* ImageTableViewCell.m */; };
 		11913CBA240646F800D301B0 /* ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11913CB8240646F800D301B0 /* ImageTableViewCell.xib */; };
 		11913CBE24064A8700D301B0 /* secondCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 11913CBD24064A8700D301B0 /* secondCellModel.m */; };
+		11A550412418D68B0043F5E5 /* PlayVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A550402418D68B0043F5E5 /* PlayVideoViewController.m */; };
 		11F36AD322DC8E2700163FEA /* UIView+Geometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F36AC322DC8E2700163FEA /* UIView+Geometry.m */; };
 		11F36AD422DC8E2700163FEA /* PHAsset+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F36AC722DC8E2700163FEA /* PHAsset+Category.m */; };
 		11F36AD522DC8E2700163FEA /* MMPhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F36AC822DC8E2700163FEA /* MMPhotoPickerController.m */; };
@@ -58,6 +59,9 @@
 		11913CB8240646F800D301B0 /* ImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageTableViewCell.xib; sourceTree = "<group>"; };
 		11913CBC24064A8700D301B0 /* secondCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = secondCellModel.h; sourceTree = "<group>"; };
 		11913CBD24064A8700D301B0 /* secondCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = secondCellModel.m; sourceTree = "<group>"; };
+		11A5503F2418D68B0043F5E5 /* PlayVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayVideoViewController.h; sourceTree = "<group>"; };
+		11A550402418D68B0043F5E5 /* PlayVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayVideoViewController.m; sourceTree = "<group>"; };
+		11A550432418E48C0043F5E5 /* CLPlayDemo.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLPlayDemo.pch; sourceTree = "<group>"; };
 		11B7559323A0819200FB2286 /* CLPlayerDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CLPlayerDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		11F36AC322DC8E2700163FEA /* UIView+Geometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Geometry.m"; sourceTree = "<group>"; };
 		11F36AC422DC8E2700163FEA /* MMPhotoUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPhotoUtil.h; sourceTree = "<group>"; };
@@ -147,6 +151,24 @@
 			name = secondList;
 			sourceTree = "<group>";
 		};
+		11A5503B2418D6440043F5E5 /* playVideoVC */ = {
+			isa = PBXGroup;
+			children = (
+				11A5503F2418D68B0043F5E5 /* PlayVideoViewController.h */,
+				11A550402418D68B0043F5E5 /* PlayVideoViewController.m */,
+			);
+			name = playVideoVC;
+			sourceTree = "<group>";
+		};
+		11A550422418E2DF0043F5E5 /* fileManageVC */ = {
+			isa = PBXGroup;
+			children = (
+				11F36ADB22DD79A000163FEA /* CLViewController.h */,
+				11F36ADC22DD79A000163FEA /* CLViewController.m */,
+			);
+			name = fileManageVC;
+			sourceTree = "<group>";
+		};
 		11F36AC222DC8E2700163FEA /* MMPhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +245,7 @@
 				5B1FC4D41DC850820036C489 /* LaunchScreen.storyboard */,
 				5B1FC4D71DC850820036C489 /* Info.plist */,
 				5B1FC4C71DC850820036C489 /* main.m */,
+				11A550432418E48C0043F5E5 /* CLPlayDemo.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -266,9 +289,9 @@
 		5BB4D1001F34594E007A1742 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				11A550422418E2DF0043F5E5 /* fileManageVC */,
+				11A5503B2418D6440043F5E5 /* playVideoVC */,
 				11913CBB24064A4300D301B0 /* secondList */,
-				11F36ADB22DD79A000163FEA /* CLViewController.h */,
-				11F36ADC22DD79A000163FEA /* CLViewController.m */,
 				5BB4D0FF1F345925007A1742 /* TableViewViewController */,
 				11F36AC222DC8E2700163FEA /* MMPhotoPicker */,
 				5BB4D1011F3459A3007A1742 /* Gategory */,
@@ -406,6 +429,7 @@
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/YCMenuView/YCMenuView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -413,6 +437,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YCMenuView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -450,6 +475,7 @@
 				453E2AAA1F3C97900003AB0C /* AILoadingView.m in Sources */,
 				5BA0AF571F4292670097B9B2 /* UITabBarController+CLPlayerRotation.m in Sources */,
 				5BB4D0F91F3455D0007A1742 /* CLModel.m in Sources */,
+				11A550412418D68B0043F5E5 /* PlayVideoViewController.m in Sources */,
 				11F36AE322DD7D0000163FEA /* UpVideoViewController.m in Sources */,
 				11F36AD322DC8E2700163FEA /* UIView+Geometry.m in Sources */,
 				5B1FC4CB1DC850820036C489 /* AppDelegate.m in Sources */,
@@ -609,6 +635,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = S76V79Y893;
+				GCC_PREFIX_HEADER = CLPlayerDemo/CLPlayDemo.pch;
 				INFOPLIST_FILE = CLPlayerDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -632,6 +659,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = S76V79Y893;
+				GCC_PREFIX_HEADER = CLPlayerDemo/CLPlayDemo.pch;
 				INFOPLIST_FILE = CLPlayerDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

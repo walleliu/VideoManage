@@ -118,7 +118,6 @@ extension WebViewController:UITableViewDelegate,UITableViewDataSource{
             let model:WebModel = self.webModels[index.row] as! WebModel
             self.testTextFieldAlert(name: model.name, url: model.url,index: index.row)
         }
-        
         let actions = [editRowAction,deleteRowAction];
         return actions;
     }

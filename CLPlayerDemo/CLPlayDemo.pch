@@ -1,0 +1,16 @@
+//
+//  CLPlayDemo.pch
+//  CLPlayerDemo
+//
+//  Created by 刘永和 on 2020/3/11.
+//  Copyright © 2020 JmoVxia. All rights reserved.
+//
+
+#ifndef CLPlayDemo_pch
+#define CLPlayDemo_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* CLPlayDemo_pch */
+#import "Masonry.h"

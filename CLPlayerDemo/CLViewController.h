@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "CLTableViewViewController.h"
+#import "PlayVideoViewController.h"
+#import "secondCellModel.h"
+#import "ImageTableViewCell.h"
+#import "MMPhotoPickerController.h"//上传视频
+#import <YCMenuView.h>
 @interface CLViewController : UIViewController
-
+@property (nonatomic, copy) NSString*currentPath;
 @end
